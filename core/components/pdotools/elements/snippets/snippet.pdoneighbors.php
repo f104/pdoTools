@@ -172,6 +172,10 @@ foreach ($rows as $row) {
 }
 $pdoFetch->addTime('Chunks processed');
 
+if ($return === 'data') {
+    return $output;
+}
+
 $log = '';
 if ($modx->user->hasSessionContext('mgr') && !empty($showLog)) {
     $log .= '<pre class="pdoNeighborsLog">' . print_r($pdoFetch->getTime(), 1) . '</pre>';
